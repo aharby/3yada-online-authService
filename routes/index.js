@@ -11,6 +11,8 @@ router.get('/health', (req, res) => {
 router.use("/auth", authRoutes);
 
 // If no API routes are hit, send the React app
-router.use("*", (req, res) => res.sendFile(path.join(__dirname, "../client/build/index.html")));
+router.use("/", (req, res) => {
+  res.send("This is Auth Service for 3yada-online")
+});
 
 module.exports = router;
