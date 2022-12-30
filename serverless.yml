@@ -1,0 +1,15 @@
+service: e3yada-online-authService
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  role: arn:aws:iam::319282172480:role/lambda-role
+  runtime: nodejs14.x
+
+functions:
+  app:
+    handler: server.handler
+    events:
+    - http: ANY /
+    - http: 'ANY /{proxy+}'
+
